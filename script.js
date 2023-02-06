@@ -1,7 +1,7 @@
 let data = null;
 const main = document.getElementsByTagName("main")[0];
 
-fetch("https://cdn.discordapp.com/attachments/1070051727061028959/1071964493657157713/transcript.json")
+fetch("https://universal-cors-proxy.glitch.me/https://cdn.discordapp.com/attachments/1070051727061028959/1071964493657157713/transcript.json")
   .then(response => response.text())
   .then(asd => {
     data = JSON.parse(asd);
