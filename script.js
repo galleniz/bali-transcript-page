@@ -1,7 +1,11 @@
 let data = null;
-const main = document.getElementsByTagName("main")[0];
+const params = Object.fromEntries(new URLSearchParams(window.location.search).entries());
 
-fetch("https://universal-cors-proxy.glitch.me/https://cdn.discordapp.com/attachments/1070051727061028959/1071964493657157713/transcript.json")
+if (!params.url)
+    params = "https://cdn.discordapp.com/attachments/1070051727061028959/1071964493657157713/transcript.json"
+const main = document.getElementsByTagName("main")[0];
+// https://cdn.discordapp.com/attachments/1070051727061028959/1071964493657157713/transcript.json
+fetch("https://universal-cors-proxy.glitch.me/" + encodeURIComponent(params.url))
   .then(response => response.text())
   .then(asd => {
     data = JSON.parse(asd);
@@ -36,7 +40,6 @@ setMessage({content: data.content, author: data.author || defaultUserName, autho
     console.error(error);
   });
 
-const params = Object.fromEntries(new URLSearchParams(window.location.search).entries());
 let defaultDate = 1675642910818;
 let defaultUserName = "Deleted User#0000";
 let defaultBot = true;
