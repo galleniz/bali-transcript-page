@@ -1,0 +1,107 @@
+html {
+  scroll-behavior:smooth;
+  height: 100%;
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  scroll-behavior:smooth;
+  height: 100%;
+
+  background-color: #36393F;
+}
+
+
+header {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+}
+
+header h1 {
+  margin-left: 170px;
+
+  margin-top: -80px;
+}
+header h2 {
+  margin-left: 210px;
+
+  margin-top: -10px;
+}
+header img {
+  width: 150px;
+  margin-left: 10px;
+  margin-top: 10px;
+  border-radius: 100px;
+}
+/*   <main>
+      <div class="simple_message">
+          <img src='img/discord.png' onerror="this.src = 'img/discord.png'"></img>
+          <author>MrNiz</author>
+          <timestamp>today at 2893123892380128391238 antes de cristo</timestamp>
+          <msg>Hello world</msg>
+      </div>
+  </main> */
+main div.simple_message  {
+  width: 85%;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 50px;
+  margin-left: 10px;
+  padding: 20px;
+  padding-left: 0px;
+}
+main div.simple_message img.bot  {
+  width: 25px;
+  margin-left: 5px;
+  
+}
+main div.simple_message line {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.25);
+  height: 2px;
+  display: block;
+  border-radius: 5px;
+  margin-left: 5px;
+
+}
+main div.simple_message img.pfp {
+  width: 25px;
+  margin-left: 25px;
+  border-radius: 50px;
+}
+main div.simple_message timestamp {
+  margin-left: 20px;
+  color: rgba(255, 255, 255, 0.566)
+}
+main div.simple_message msg {
+  color: WHITE;
+  margin-left: 20px;
+}
+main div.simple_message author {
+  color: white
+}
+main div.simple_message img.attachement_img {
+  width: 280px;
+  height: 280px;
+  border-radius: 10px;
+  padding-top: -20px;
+}
+main div.simple_message atch.attachement_txt {
+  width: 280px;
+  height: 280px;
+  border-radius: 10px;
+  color: white;
+  display: block;
+  background: #000000b0;
+
+}
+
+main div.simple_message atch div.attachement_text{
+  font-family: monospace;
+  margin-left: 5px;
+  width: 275px;
+  height: 270px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-all;
+  overflow: scroll;
+}
