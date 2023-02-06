@@ -7,6 +7,9 @@ fetch("https://cors-anywhere.herokuapp.com/https://cdn.discordapp.com/attachment
     data = JSON.parse(asd);
     console.log(data);
 readData( atob(data.guild))
+let json;
+
+
 try {
     json = JSON.parse(atob(data.messages));
     console.log("a")
@@ -20,6 +23,12 @@ try {
         console.log(e)
     }
 
+}
+
+console.log(JSON.stringify(json))
+// console.log(atob('[{"content":"hola","author":"MrNiz","authorIconURL":"a","attachements":[],"timestamp":null,"bot":false},{}]'))
+for (let data of json){
+setMessage({content: data.content, author: data.author || defaultUserName, authorIconURL: data.authorIconURL, attachements: data.attachements || [], timestamp: data.timestamp || defaultDate, bot: data.bot})
 }
 
   })
@@ -62,15 +71,6 @@ console.log("hola");
 return "Can't get data from \""+ link+ "\" :("
 }
 let curMsg = 0;
-console.log(new Date().getTime())
-let json;
-
-
-console.log(JSON.stringify(json))
-// console.log(atob('[{"content":"hola","author":"MrNiz","authorIconURL":"a","attachements":[],"timestamp":null,"bot":false},{}]'))
-for (let data of json){
-setMessage({content: data.content, author: data.author || defaultUserName, authorIconURL: data.authorIconURL, attachements: data.attachements || [], timestamp: data.timestamp || defaultDate, bot: data.bot})
-}
 
 // {{content: String, author:String, timestamp:Number, authorIconURL:String, attachements:Array<{type:String, url:String}}
 /**
