@@ -1,11 +1,11 @@
 let data = null;
 const params = Object.fromEntries(new URLSearchParams(window.location.search).entries());
-
-if (!params.url)
-    params = "https://cdn.discordapp.com/attachments/1070051727061028959/1071964493657157713/transcript.json"
+let url = "https://cdn.discordapp.com/attachments/1070051727061028959/1071964493657157713/transcript.json"
+if (params.url)
+    url = params.url
 const main = document.getElementsByTagName("main")[0];
 // https://cdn.discordapp.com/attachments/1070051727061028959/1071964493657157713/transcript.json
-fetch("https://universal-cors-proxy.glitch.me/" + encodeURIComponent(params.url))
+fetch("https://universal-cors-proxy.glitch.me/" + encodeURIComponent(url))
   .then(response => response.text())
   .then(asd => {
     data = JSON.parse(asd);
@@ -61,7 +61,7 @@ function readData(dataStr)
 // atob(params.guild)
 
 function request(link){
-    fetch("https://cors-anywhere.herokuapp.com/" + link)
+    fetch("https://universal-cors-proxy.glitch.me/" + encodeURIComponent(link))
     .then(response => response.text())
     .then(asd => {
         return asd;  
