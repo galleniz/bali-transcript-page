@@ -1,9 +1,27 @@
 let data = null;
+const main = document.getElementsByTagName("main")[0];
+
 fetch("https://cors-anywhere.herokuapp.com/https://cdn.discordapp.com/attachments/1070051727061028959/1071964493657157713/transcript.json")
   .then(response => response.text())
   .then(asd => {
     data = JSON.parse(asd);
     console.log(data);
+readData( atob(data.guild))
+try {
+    json = JSON.parse(atob(data.messages));
+    console.log("a")
+} catch(e) {
+    try {
+    console.log("a :/")
+
+         json = JSON.parse(data.messages);
+    } catch (er)
+    {
+        console.log(e)
+    }
+
+}
+
   })
   .catch(error => {
     console.error(error);
@@ -29,19 +47,16 @@ function readData(dataStr)
 // ''
 // { "guildName": "Mizyico Community Discord", "guildId": "-1", "guildIcon": "https://images-ext-1.discordapp.net/external/-AV0NhM60fnxWHkccLXrqESsncXjzWCxXeKszWdvbHY/%3Fsize%3D2048/https/cdn.discordapp.com/icons/973021942892359711/daed5d7cdac059451354c820f3a557ec.webp", "channel": "🚗|carros-mamalones"}
 // atob(params.guild)
-readData( atob(data.guild))
 
-const main = document.getElementsByTagName("main")[0];
 function request(link){
-    $.ajax(link,   // request url
-    {
-        success: function (data, status, xhr) {// success callback function
-            // $('p').append(data);
-            // console.log(data)
-            console.log(data);
-            return data
-    }
-});
+    fetch("https://cors-anywhere.herokuapp.com/" + link)
+    .then(response => response.text())
+    .then(asd => {
+        return asd;  
+    })
+    .catch(error => {
+      console.error(error);
+    });
 console.log("hola");
 
 return "Can't get data from \""+ link+ "\" :("
@@ -50,20 +65,7 @@ let curMsg = 0;
 console.log(new Date().getTime())
 let json;
 
-try {
-    json = JSON.parse(atob(data.messages));
-    console.log("a")
-} catch(e) {
-    try {
-    console.log("a :/")
 
-         json = JSON.parse(data.messages);
-    } catch (er)
-    {
-        console.log(e)
-    }
-
-}
 console.log(JSON.stringify(json))
 // console.log(atob('[{"content":"hola","author":"MrNiz","authorIconURL":"a","attachements":[],"timestamp":null,"bot":false},{}]'))
 for (let data of json){
