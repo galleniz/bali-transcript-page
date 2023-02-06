@@ -1,8 +1,8 @@
 let data = null;
 fetch("https://cors-anywhere.herokuapp.com/https://cdn.discordapp.com/attachments/1070051727061028959/1071964493657157713/transcript.json")
   .then(response => response.text())
-  .then(data => {
-    data = JSON.parse(data);
+  .then(asd => {
+    data = JSON.parse(asd);
     console.log(data);
   })
   .catch(error => {
